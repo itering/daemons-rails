@@ -1,5 +1,3 @@
-# NOTE: The project is not currently under support and looking for man who ready to get care of it
-
 Daemons Rails support (based on http://github.com/dougal/daemon_generator)
 ================
 

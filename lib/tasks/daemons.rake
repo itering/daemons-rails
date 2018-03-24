@@ -27,8 +27,14 @@ namespace :daemon do
     namespace app_name do
       %w[start stop restart status].each do |arg|
         desc "#{arg.capitalize} #{app_name} daemon."
-        task :"#{arg}" do
-          puts `#{controller} #{arg}`
+        if app_name == 'withdraw_coin'
+          task :"#{arg}", [:option] do |_, args|
+            puts `#{controller} #{arg} #{args[:option]}`
+          end
+        else
+          task :"#{arg}" do
+            puts `#{controller} #{arg}`
+          end
         end
       end
     end
